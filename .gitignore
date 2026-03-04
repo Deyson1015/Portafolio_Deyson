@@ -1,0 +1,5 @@
+# Carpeta Agent
+.agent/
+
+# Skills dentro de agent (opcional, ya queda cubierto arriba)
+.agent/skills/
