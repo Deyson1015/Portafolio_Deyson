@@ -3,7 +3,8 @@
    Interactividad, animaciones y funcionalidad
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+// Espera a que las secciones se carguen dinámicamente
+document.addEventListener('sectionsLoaded', () => {
 
     // ---------- NAVBAR SCROLL ----------
     const navbar = document.getElementById('navbar');
@@ -172,39 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-    });
-
-    // ---------- CONTACT FORM ----------
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Simple button animation
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        submitBtn.textContent = 'Enviando...';
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
-
-        // Simulate form submission
-        setTimeout(() => {
-            contactForm.style.display = 'none';
-            formSuccess.classList.add('show');
-
-            // Reset after 4 seconds
-            setTimeout(() => {
-                contactForm.style.display = '';
-                formSuccess.classList.remove('show');
-                contactForm.reset();
-                submitBtn.innerHTML = `
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    Enviar Mensaje
-                `;
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '';
-            }, 4000);
-        }, 1200);
     });
 
     // ---------- BACK TO TOP ----------
